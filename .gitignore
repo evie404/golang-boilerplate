@@ -15,3 +15,6 @@
 
 # Bazel
 /bazel-*
+
+# Built-Binaries
+/golang-boilerplate
