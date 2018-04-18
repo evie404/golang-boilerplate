@@ -1,15 +1,12 @@
-# workspace(name = "golang_boilerplate")
-
-git_repository(
+http_archive(
     name = "io_bazel_rules_go",
-    commit = "85332458a80bc586bc6233b6d20677882455c779",
-    remote = "https://github.com/bazelbuild/rules_go.git",
+    url = "https://github.com/bazelbuild/rules_go/releases/download/0.11.0/rules_go-0.11.0.tar.gz",
+    sha256 = "f70c35a8c779bb92f7521ecb5a1c6604e9c3edd431e50b6376d7497abc8ad3c1",
 )
-
 http_archive(
     name = "bazel_gazelle",
-    url = "https://github.com/bazelbuild/bazel-gazelle/releases/download/0.8/bazel-gazelle-0.8.tar.gz",
-    sha256 = "e3dadf036c769d1f40603b86ae1f0f90d11837116022d9b06e4cd88cae786676",
+    url = "https://github.com/bazelbuild/bazel-gazelle/releases/download/0.11.0/bazel-gazelle-0.11.0.tar.gz",
+    sha256 = "92a3c59734dad2ef85dc731dbcb2bc23c4568cded79d4b87ebccd787eb89e8d0",
 )
 load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies")
 
