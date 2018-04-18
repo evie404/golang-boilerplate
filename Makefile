@@ -11,5 +11,8 @@ dep:
 build:
 	bazel build ${PROJECT}
 
+gazelle:
+	bazel run //:gazelle
+
 run:
 	bazel run ${PROJECT}
