@@ -1,6 +1,6 @@
 PROJECT := golang-boilerplate
 
-.PHONY: default dep build run
+.PHONY: default dep build run buildifier
 
 default: build
 
