@@ -16,3 +16,6 @@ gazelle:
 
 run:
 	bazel run ${PROJECT}
+
+buildifier:
+	bazel run --direct_run //:buildifier

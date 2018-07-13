@@ -2,6 +2,7 @@ package(default_visibility = ["//visibility:public"])
 
 load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
 load("@bazel_gazelle//:def.bzl", "gazelle")
+load("@com_github_bazelbuild_buildtools//buildifier:def.bzl", "buildifier")
 
 gazelle(
     name = "gazelle",
@@ -23,4 +24,8 @@ go_binary(
     name = "golang-boilerplate",
     embed = [":go_default_library"],
     visibility = ["//visibility:public"],
+)
+
+buildifier(
+    name = "buildifier",
 )
