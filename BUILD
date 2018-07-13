@@ -1,6 +1,6 @@
 package(default_visibility = ["//visibility:public"])
 
-load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library", "go_prefix")
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
 load("@bazel_gazelle//:def.bzl", "gazelle")
 
 gazelle(
@@ -8,8 +8,6 @@ gazelle(
     external = "vendored",
     prefix = "github.com/rickypai/golang-boilerplate",
 )
-
-go_prefix("github.com/rickypai/golang-boilerplate")
 
 go_library(
     name = "go_default_library",
