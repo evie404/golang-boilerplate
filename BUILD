@@ -4,7 +4,7 @@ load("@com_github_bazelbuild_buildtools//buildifier:def.bzl", "buildifier")
 
 gazelle(
     name = "gazelle",
-    external = "vendored",
+    external = "external",
     prefix = "github.com/rickypai/golang-boilerplate",
 )
 
@@ -18,7 +18,7 @@ go_library(
     importpath = "github.com/rickypai/golang-boilerplate",
     visibility = ["//visibility:private"],
     deps = [
-        "//vendor/gopkg.in/yaml.v2:go_default_library",
+        "@in_gopkg_yaml_v2//:go_default_library",
     ],
 )
 
