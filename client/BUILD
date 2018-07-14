@@ -1,5 +1,4 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
-load("@org_pubref_rules_protobuf//go:rules.bzl", "GRPC_COMPILE_DEPS")
 
 go_library(
     name = "go_default_library",
@@ -8,7 +7,8 @@ go_library(
     visibility = ["//visibility:private"],
     deps = [
         "//protobufs:helloworld",
-    ] + GRPC_COMPILE_DEPS,  # keep
+        "@org_golang_google_grpc//:go_default_library",
+    ],
 )
 
 go_binary(
