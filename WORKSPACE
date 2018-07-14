@@ -21,7 +21,7 @@ http_archive(
 # own fork that works with rules_go/gazelle 0.13.0
 git_repository(
     name = "org_pubref_rules_protobuf",
-    commit = "6c86852c21a294a34eb3104a9549e24aefbba6bb",
+    commit = "36a15b18ee22be726a412282311b67786befcd3a",
     remote = "https://github.com/rickypai/rules_protobuf",
 )
 
