@@ -19,9 +19,9 @@ http_archive(
 )
 
 git_repository(
-  name = "org_pubref_rules_protobuf",
-  remote = "https://github.com/rickypai/rules_protobuf",
-  commit = "6c86852c21a294a34eb3104a9549e24aefbba6bb"
+    name = "org_pubref_rules_protobuf",
+    commit = "6c86852c21a294a34eb3104a9549e24aefbba6bb",
+    remote = "https://github.com/rickypai/rules_protobuf",
 )
 
 load("@io_bazel_rules_go//go:def.bzl", "go_register_toolchains", "go_rules_dependencies")
