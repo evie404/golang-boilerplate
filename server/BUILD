@@ -6,6 +6,7 @@ go_library(
     importpath = "github.com/rickypai/golang-boilerplate/server",
     visibility = ["//visibility:private"],
     deps = [
+        "//common:go_default_library",
         "//protobufs:helloworld",
         "@org_golang_google_grpc//:go_default_library",
         "@org_golang_google_grpc//reflection:go_default_library",

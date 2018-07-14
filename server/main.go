@@ -21,17 +21,15 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net"
 
+	"github.com/rickypai/golang-boilerplate/common"
 	pb "github.com/rickypai/golang-boilerplate/protobufs/helloworld"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
-)
-
-const (
-	port = ":50051"
 )
 
 // server is used to implement helloworld.GreeterServer.
@@ -43,7 +41,7 @@ func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloRe
 }
 
 func main() {
-	lis, err := net.Listen("tcp", port)
+	lis, err := net.Listen("tcp", fmt.Sprintf(":%v", common.Port))
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
