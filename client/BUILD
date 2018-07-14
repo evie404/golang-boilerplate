@@ -9,6 +9,7 @@ go_library(
         "//common:go_default_library",
         "//protobufs:helloworld",
         "@org_golang_google_grpc//:go_default_library",
+        "@org_golang_x_net//context:go_default_library",
     ],
 )
 
