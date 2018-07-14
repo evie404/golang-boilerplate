@@ -12,7 +12,7 @@ go_library(
 )
 
 go_binary(
-    name = "golang-boilerplate",
+    name = "client",
     embed = [":go_default_library"],
     visibility = ["//visibility:public"],
 )
