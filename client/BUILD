@@ -4,11 +4,11 @@ load("@org_pubref_rules_protobuf//go:rules.bzl", "GRPC_COMPILE_DEPS")
 go_library(
     name = "go_default_library",
     srcs = ["main.go"],
-    importpath = "github.com/rickypai/golang-boilerplate/server",
+    importpath = "github.com/rickypai/golang-boilerplate/client",
     visibility = ["//visibility:private"],
     deps = [
         "//protobufs:helloworld",
-    ] + GRPC_COMPILE_DEPS,
+    ] + GRPC_COMPILE_DEPS,  # keep
 )
 
 go_binary(
