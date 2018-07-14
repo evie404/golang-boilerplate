@@ -41,9 +41,3 @@ buildifier_dependencies()
 load("@org_pubref_rules_protobuf//go:rules.bzl", "go_proto_repositories")
 
 go_proto_repositories()
-
-go_repository(
-    name = "in_gopkg_yaml_v2",
-    commit = "5420a8b6744d3b0345ab293f6fcba19c978f1183",
-    importpath = "gopkg.in/yaml.v2",
-)

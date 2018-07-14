@@ -1,17 +1,14 @@
 PROJECT := golang-boilerplate
 
-.PHONY: default build run buildifier
+.PHONY: default build buildifier
 
 default: build
 
 build:
-	bazel build ${PROJECT}
+	bazel build //...
 
 gazelle:
 	bazel run //:gazelle
-
-run:
-	bazel run ${PROJECT}
 
 buildifier:
 	bazel run --direct_run //:buildifier
