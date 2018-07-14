@@ -18,6 +18,12 @@ http_archive(
     url = "https://github.com/bazelbuild/buildtools/archive/41827ab190fd867ed2d0f5bd127b0b27f98f606f.zip",
 )
 
+git_repository(
+  name = "org_pubref_rules_protobuf",
+  remote = "https://github.com/rickypai/rules_protobuf",
+  commit = "6c86852c21a294a34eb3104a9549e24aefbba6bb"
+)
+
 load("@io_bazel_rules_go//go:def.bzl", "go_register_toolchains", "go_rules_dependencies")
 
 go_rules_dependencies()
@@ -31,3 +37,7 @@ gazelle_dependencies()
 load("@com_github_bazelbuild_buildtools//buildifier:deps.bzl", "buildifier_dependencies")
 
 buildifier_dependencies()
+
+load("@org_pubref_rules_protobuf//go:rules.bzl", "go_proto_repositories")
+
+go_proto_repositories()
