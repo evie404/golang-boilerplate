@@ -18,6 +18,7 @@ http_archive(
     url = "https://github.com/bazelbuild/buildtools/archive/41827ab190fd867ed2d0f5bd127b0b27f98f606f.zip",
 )
 
+# own fork that works with rules_go/gazelle 0.13.0
 git_repository(
     name = "org_pubref_rules_protobuf",
     commit = "6c86852c21a294a34eb3104a9549e24aefbba6bb",
