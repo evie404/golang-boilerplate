@@ -1,6 +1,7 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
 load("@io_bazel_rules_docker//go:image.bzl", "go_image")
 load("//:constants.bzl", "GO_PREFIX")
+load("@io_bazel_rules_k8s//k8s:object.bzl", "k8s_object")
 
 go_library(
     name = "go_default_library",
@@ -28,4 +29,21 @@ go_image(
     goarch = "amd64",
     goos = "linux",
     pure = "on",
+)
+
+k8s_object(
+  name = "dev",
+  kind = "deployment",
+
+  # A template of a Kubernetes Deployment object yaml.
+  template = ":helloworld-dev-deployment.yaml",
+
+  # An optional collection of docker_build images to publish
+  # when this target is bazel run.  The digest of the published
+  # image is substituted as a part of the resolution process.
+  images = {
+    "registry.hub.docker.com/rickyp999/helloworld:dev": "//helloworld/server:server_image"
+  },
+
+  cluster = "minikube"
 )

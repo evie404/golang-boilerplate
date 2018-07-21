@@ -25,11 +25,16 @@ git_repository(
     remote = "https://github.com/rickypai/rules_protobuf",
 )
 
-http_archive(
+git_repository(
     name = "io_bazel_rules_docker",
-    sha256 = "6dede2c65ce86289969b907f343a1382d33c14fbce5e30dd17bb59bb55bb6593",
-    strip_prefix = "rules_docker-0.4.0",
-    urls = ["https://github.com/bazelbuild/rules_docker/archive/v0.4.0.tar.gz"],
+    commit = "c7a93454d27e09ef707dfca53887ed0ff4372f04",
+    remote = "https://github.com/bazelbuild/rules_docker.git",
+)
+
+git_repository(
+    name = "io_bazel_rules_k8s",
+    commit = "8c615639dbb4592f4a471fc22f19c84f8fc35569",
+    remote = "https://github.com/bazelbuild/rules_k8s.git",
 )
 
 load("@io_bazel_rules_go//go:def.bzl", "go_register_toolchains", "go_rules_dependencies")
@@ -61,3 +66,7 @@ load(
 )
 
 _go_image_repos()
+
+load("@io_bazel_rules_k8s//k8s:k8s.bzl", "k8s_repositories")
+
+k8s_repositories()
