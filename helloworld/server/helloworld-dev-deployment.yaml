@@ -22,3 +22,24 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 50051
+      - name: envoy
+        image: registry.hub.docker.com/envoyproxy/envoy:598f5c9433707019169669c787d606ff0b07e9d4
+        command:
+        - "/usr/local/bin/envoy"
+        args:
+        - "--config-path /etc/envoy/envoy-config.yaml"
+        - "--mode serve"
+        - "--service-cluster local_service_grpc"
+        - --v2-config-only
+        ports:
+        - containerPort: 50052
+        - containerPort: 9901
+          protocol: TCP
+          name: envoy-admin
+        volumeMounts:
+        - name: envoy-config
+          mountPath: /etc/envoy
+      volumes:
+      - name: envoy-config
+        configMap:
+          name: server-envoy-config
