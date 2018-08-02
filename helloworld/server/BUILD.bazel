@@ -32,19 +32,18 @@ go_image(
 )
 
 k8s_object(
-  name = "dev",
-  kind = "deployment",
-  namespace = "default",
+    name = "dev",
+    cluster = "minikube",
 
-  # A template of a Kubernetes Deployment object yaml.
-  template = ":helloworld-dev-deployment.yaml",
+    # An optional collection of docker_build images to publish
+    # when this target is bazel run.  The digest of the published
+    # image is substituted as a part of the resolution process.
+    images = {
+        "registry.hub.docker.com/rickyp999/helloworld:dev": "//helloworld/server:server_image",
+    },
+    kind = "deployment",
+    namespace = "default",
 
-  # An optional collection of docker_build images to publish
-  # when this target is bazel run.  The digest of the published
-  # image is substituted as a part of the resolution process.
-  images = {
-    "registry.hub.docker.com/rickyp999/helloworld:dev": "//helloworld/server:server_image"
-  },
-
-  cluster = "minikube"
+    # A template of a Kubernetes Deployment object yaml.
+    template = ":helloworld-dev-deployment.yaml",
 )

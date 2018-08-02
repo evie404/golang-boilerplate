@@ -2,29 +2,25 @@ load("@io_bazel_rules_k8s//k8s:object.bzl", "k8s_object")
 load("@io_bazel_rules_k8s//k8s:objects.bzl", "k8s_objects")
 
 k8s_objects(
-   name = "all",
-   objects = [
-      ":rbac",
-      ":ds",
-   ]
+    name = "all",
+    objects = [
+        ":rbac",
+        ":ds",
+    ],
 )
 
 k8s_object(
-  name = "rbac",
-  namespace = "kube-system",
-  kind = "deployment",
-
-  template = ":rbac.yaml",
-
-  cluster = "minikube"
+    name = "rbac",
+    cluster = "minikube",
+    kind = "deployment",
+    namespace = "kube-system",
+    template = ":rbac.yaml",
 )
 
 k8s_object(
-  name = "ds",
-  namespace = "kube-system",
-  kind = "deployment",
-
-  template = ":datadog-agent.yaml",
-
-  cluster = "minikube"
+    name = "ds",
+    cluster = "minikube",
+    kind = "deployment",
+    namespace = "kube-system",
+    template = ":datadog-agent.yaml",
 )
