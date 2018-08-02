@@ -9,5 +9,5 @@ kubectl create secret generic datadog --from-literal=api-key=<API KEY> --namespa
 ## Setting up components
 
 ```
-kubectl apply --filename=infra/datadog-agent/. --recursive
+bazel run //infra/datadog-agent:all.apply
 ```
