@@ -39,7 +39,7 @@ k8s_object(
     # when this target is bazel run.  The digest of the published
     # image is substituted as a part of the resolution process.
     images = {
-        "registry.hub.docker.com/rickyp999/helloworld:dev": "//helloworld/server:server_image",
+        "index.docker.io/rickyp999/helloworld:dev": "//helloworld/server:server_image",
     },
     kind = "deployment",
     namespace = "default",

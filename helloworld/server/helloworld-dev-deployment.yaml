@@ -18,12 +18,12 @@ spec:
     spec:
       containers:
       - name: helloworld
-        image: registry.hub.docker.com/rickyp999/helloworld:dev
+        image: index.docker.io/rickyp999/helloworld:dev
         imagePullPolicy: Always
         ports:
         - containerPort: 50051
       - name: envoy
-        image: registry.hub.docker.com/envoyproxy/envoy:5ec8b37da9de5893c04f75bbf2820014c62ea529
+        image: index.docker.io/envoyproxy/envoy:5ec8b37da9de5893c04f75bbf2820014c62ea529
         command:
         - "/usr/local/bin/envoy"
         args:
