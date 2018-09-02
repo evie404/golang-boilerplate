@@ -2,8 +2,8 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 http_archive(
     name = "io_bazel_rules_go",
-    sha256 = "ba79c532ac400cefd1859cbc8a9829346aa69e3b99482cd5a54432092cbc3933",
-    urls = ["https://github.com/bazelbuild/rules_go/releases/download/0.13.0/rules_go-0.13.0.tar.gz"],
+    urls = ["https://github.com/bazelbuild/rules_go/releases/download/0.13.1/rules_go-0.13.1.tar.gz"],
+    sha256 = "96e50aca9efb652db6271ba9cacf21f8f1fb29b2eab57ebaacdc071a022d1ad2",
 )
 
 http_archive(
@@ -24,10 +24,10 @@ http_archive(
     urls = ["https://github.com/atlassian/bazel-tools/archive/e0e575b8a809c4565ef189be871bb6b11cd91043.zip"],
 )
 
-# own fork that works with rules_go/gazelle 0.13.0
+# own fork that works with rules_go/gazelle 0.13.1
 git_repository(
     name = "org_pubref_rules_protobuf",
-    commit = "36a15b18ee22be726a412282311b67786befcd3a",
+    commit = "714975262f04149ac963a4fbbf7e09aaaa33af40",
     remote = "https://github.com/rickypai/rules_protobuf",
 )
 
