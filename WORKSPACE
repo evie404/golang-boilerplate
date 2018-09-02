@@ -18,6 +18,12 @@ http_archive(
     url = "https://github.com/bazelbuild/buildtools/archive/41827ab190fd867ed2d0f5bd127b0b27f98f606f.zip",
 )
 
+http_archive(
+    name = "com_github_atlassian_bazel_tools",
+    strip_prefix = "bazel-tools-e0e575b8a809c4565ef189be871bb6b11cd91043",
+    urls = ["https://github.com/atlassian/bazel-tools/archive/e0e575b8a809c4565ef189be871bb6b11cd91043.zip"],
+)
+
 # own fork that works with rules_go/gazelle 0.13.0
 git_repository(
     name = "org_pubref_rules_protobuf",
@@ -54,6 +60,10 @@ buildifier_dependencies()
 load("@org_pubref_rules_protobuf//go:rules.bzl", "go_proto_repositories")
 
 go_proto_repositories()
+
+load("@com_github_atlassian_bazel_tools//goimports:deps.bzl", "goimports_dependencies")
+
+goimports_dependencies()
 
 load(
     "@io_bazel_rules_docker//container:container.bzl",

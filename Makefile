@@ -16,5 +16,8 @@ client:
 gazelle:
 	bazel run //:gazelle
 
+goimports:
+	bazel run //:goimports
+
 buildifier:
 	bazel run --direct_run //:buildifier
