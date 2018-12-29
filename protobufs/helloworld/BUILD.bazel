@@ -1,11 +1,16 @@
 package(default_visibility = ["//visibility:public"])
 
 load("//:constants.bzl", "GO_PREFIX")
-load("@org_pubref_rules_protobuf//go:rules.bzl", "go_proto_library")
+load("@build_stack_rules_proto//go:go_grpc_library.bzl", "go_grpc_library")
 
-go_proto_library(
+proto_library(
+    name = "helloworld_proto",
+    srcs = ["helloworld.proto"],
+    visibility = ["//visibility:public"],
+)
+
+go_grpc_library(
     name = "go_default_library",
     importpath = GO_PREFIX + "/protobufs/helloworld",
-    protos = ["helloworld.proto"],
-    with_grpc = True,
+    deps = ["//protobufs/helloworld:helloworld_proto"],
 )

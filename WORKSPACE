@@ -28,13 +28,6 @@ http_archive(
     urls = ["https://github.com/atlassian/bazel-tools/archive/"+ATLASSIAN_BAZEL_TOOLS_SHA+".zip"],
 )
 
-# own fork that works with rules_go/gazelle 0.13.1
-git_repository(
-    name = "org_pubref_rules_protobuf",
-    commit = "714975262f04149ac963a4fbbf7e09aaaa33af40",
-    remote = "https://github.com/rickypai/rules_protobuf",
-)
-
 git_repository(
     name = "io_bazel_rules_docker",
     commit = "c7a93454d27e09ef707dfca53887ed0ff4372f04",
@@ -46,6 +39,16 @@ git_repository(
     commit = "8c615639dbb4592f4a471fc22f19c84f8fc35569",
     remote = "https://github.com/bazelbuild/rules_k8s.git",
 )
+
+git_repository(
+    name = "build_stack_rules_proto",
+    commit = "45c86586f0e381edeb04200c038610aaa84d220e",
+    remote = "https://github.com/stackb/rules_proto.git",
+)
+
+load("@build_stack_rules_proto//go:deps.bzl", "go_proto_compile")
+
+go_proto_compile()
 
 load("@io_bazel_rules_go//go:def.bzl", "go_register_toolchains", "go_rules_dependencies")
 
@@ -61,9 +64,6 @@ load("@com_github_bazelbuild_buildtools//buildifier:deps.bzl", "buildifier_depen
 
 buildifier_dependencies()
 
-load("@org_pubref_rules_protobuf//go:rules.bzl", "go_proto_repositories")
-
-go_proto_repositories()
 
 load("@com_github_atlassian_bazel_tools//goimports:deps.bzl", "goimports_dependencies")
 
