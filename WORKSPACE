@@ -12,16 +12,20 @@ http_archive(
     urls = ["https://github.com/bazelbuild/bazel-gazelle/releases/download/0.13.0/bazel-gazelle-0.13.0.tar.gz"],
 )
 
+BAZEL_BUILD_TOOLS_SHA = "41d89cd7c8328bb912f3b8f50d2dc970805d21f8"
+
 http_archive(
     name = "com_github_bazelbuild_buildtools",
-    strip_prefix = "buildtools-ae772d29d07002dfd89ed1d9ff673a1721f1b8dd",
-    url = "https://github.com/bazelbuild/buildtools/archive/ae772d29d07002dfd89ed1d9ff673a1721f1b8dd.zip",
+    strip_prefix = "buildtools-"+BAZEL_BUILD_TOOLS_SHA,
+    url = "https://github.com/bazelbuild/buildtools/archive/"+BAZEL_BUILD_TOOLS_SHA+".zip",
 )
+
+ATLASSIAN_BAZEL_TOOLS_SHA = "1e588b1efac2c9dca66626b62a873f65de64de4b"
 
 http_archive(
     name = "com_github_atlassian_bazel_tools",
-    strip_prefix = "bazel-tools-e0e575b8a809c4565ef189be871bb6b11cd91043",
-    urls = ["https://github.com/atlassian/bazel-tools/archive/e0e575b8a809c4565ef189be871bb6b11cd91043.zip"],
+    strip_prefix = "bazel-tools-"+ATLASSIAN_BAZEL_TOOLS_SHA,
+    urls = ["https://github.com/atlassian/bazel-tools/archive/"+ATLASSIAN_BAZEL_TOOLS_SHA+".zip"],
 )
 
 # own fork that works with rules_go/gazelle 0.13.1
