@@ -40,16 +40,6 @@ git_repository(
     remote = "https://github.com/bazelbuild/rules_k8s.git",
 )
 
-git_repository(
-    name = "build_stack_rules_proto",
-    commit = "45c86586f0e381edeb04200c038610aaa84d220e",
-    remote = "https://github.com/stackb/rules_proto.git",
-)
-
-load("@build_stack_rules_proto//go:deps.bzl", "go_proto_compile")
-
-go_proto_compile()
-
 load("@io_bazel_rules_go//go:def.bzl", "go_register_toolchains", "go_rules_dependencies")
 
 go_rules_dependencies()
@@ -63,7 +53,6 @@ gazelle_dependencies()
 load("@com_github_bazelbuild_buildtools//buildifier:deps.bzl", "buildifier_dependencies")
 
 buildifier_dependencies()
-
 
 load("@com_github_atlassian_bazel_tools//goimports:deps.bzl", "goimports_dependencies")
 
