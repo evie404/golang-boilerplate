@@ -1,9 +1,10 @@
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
-http_archive(
+git_repository(
     name = "io_bazel_rules_go",
-    sha256 = "492c3ac68ed9dcf527a07e6a1b2dcbf199c6bf8b35517951467ac32e421c06c1",
-    urls = ["https://github.com/bazelbuild/rules_go/releases/download/0.17.0/rules_go-0.17.0.tar.gz"],
+    commit = "c9fbf63190163562518b30aa2b58a15c2886b290",
+    remote = "https://github.com/rickypai/rules_go.git",
 )
 
 http_archive(
