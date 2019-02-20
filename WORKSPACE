@@ -2,17 +2,17 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 http_archive(
     name = "io_bazel_rules_go",
-    sha256 = "96e50aca9efb652db6271ba9cacf21f8f1fb29b2eab57ebaacdc071a022d1ad2",
-    urls = ["https://github.com/bazelbuild/rules_go/releases/download/0.13.1/rules_go-0.13.1.tar.gz"],
+    sha256 = "492c3ac68ed9dcf527a07e6a1b2dcbf199c6bf8b35517951467ac32e421c06c1",
+    urls = ["https://github.com/bazelbuild/rules_go/releases/download/0.17.0/rules_go-0.17.0.tar.gz"],
 )
 
 http_archive(
     name = "bazel_gazelle",
-    sha256 = "bc653d3e058964a5a26dcad02b6c72d7d63e6bb88d94704990b908a1445b8758",
-    urls = ["https://github.com/bazelbuild/bazel-gazelle/releases/download/0.13.0/bazel-gazelle-0.13.0.tar.gz"],
+    sha256 = "7949fc6cc17b5b191103e97481cf8889217263acf52e00b560683413af204fcb",
+    urls = ["https://github.com/bazelbuild/bazel-gazelle/releases/download/0.16.0/bazel-gazelle-0.16.0.tar.gz"],
 )
 
-BAZEL_BUILD_TOOLS_SHA = "41d89cd7c8328bb912f3b8f50d2dc970805d21f8"
+BAZEL_BUILD_TOOLS_SHA = "55b64c3d2ddfb57f06477c1d94ef477419c96bd6" # 0.22.0
 
 http_archive(
     name = "com_github_bazelbuild_buildtools",
@@ -20,7 +20,7 @@ http_archive(
     url = "https://github.com/bazelbuild/buildtools/archive/"+BAZEL_BUILD_TOOLS_SHA+".zip",
 )
 
-ATLASSIAN_BAZEL_TOOLS_SHA = "1e588b1efac2c9dca66626b62a873f65de64de4b"
+ATLASSIAN_BAZEL_TOOLS_SHA = "02db1d60cc5dff8ff8e9af6c5902d1f825bfc49f"
 
 http_archive(
     name = "com_github_atlassian_bazel_tools",
@@ -28,19 +28,20 @@ http_archive(
     urls = ["https://github.com/atlassian/bazel-tools/archive/"+ATLASSIAN_BAZEL_TOOLS_SHA+".zip"],
 )
 
-git_repository(
+http_archive(
     name = "io_bazel_rules_docker",
-    commit = "c7a93454d27e09ef707dfca53887ed0ff4372f04",
-    remote = "https://github.com/bazelbuild/rules_docker.git",
+    sha256 = "aed1c249d4ec8f703edddf35cbe9dfaca0b5f5ea6e4cd9e83e99f3b0d1136c3d",
+    strip_prefix = "rules_docker-0.7.0",
+    urls = ["https://github.com/bazelbuild/rules_docker/archive/v0.7.0.tar.gz"],
 )
 
 git_repository(
     name = "io_bazel_rules_k8s",
-    commit = "8c615639dbb4592f4a471fc22f19c84f8fc35569",
+    commit = "87de67e50c1135a6b6bd0f1401f004bf7c711c42",
     remote = "https://github.com/bazelbuild/rules_k8s.git",
 )
 
-load("@io_bazel_rules_go//go:def.bzl", "go_register_toolchains", "go_rules_dependencies")
+load("@io_bazel_rules_go//go:deps.bzl", "go_register_toolchains", "go_rules_dependencies")
 
 go_rules_dependencies()
 
@@ -59,9 +60,14 @@ load("@com_github_atlassian_bazel_tools//goimports:deps.bzl", "goimports_depende
 goimports_dependencies()
 
 load(
+    "@io_bazel_rules_docker//repositories:repositories.bzl",
+    container_repositories = "repositories",
+)
+container_repositories()
+
+load(
     "@io_bazel_rules_docker//container:container.bzl",
     "container_pull",
-    container_repositories = "repositories",
 )
 load(
     "@io_bazel_rules_docker//go:image.bzl",
