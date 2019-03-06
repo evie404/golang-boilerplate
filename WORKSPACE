@@ -1,19 +1,19 @@
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
-git_repository(
+http_archive(
     name = "io_bazel_rules_go",
-    commit = "c9fbf63190163562518b30aa2b58a15c2886b290",
-    remote = "https://github.com/rickypai/rules_go.git",
+    urls = ["https://github.com/bazelbuild/rules_go/releases/download/0.18.0/rules_go-0.18.0.tar.gz"],
+    sha256 = "301c8b39b0808c49f98895faa6aa8c92cbd605ab5ad4b6a3a652da33a1a2ba2e",
 )
 
 http_archive(
     name = "bazel_gazelle",
-    sha256 = "7949fc6cc17b5b191103e97481cf8889217263acf52e00b560683413af204fcb",
-    urls = ["https://github.com/bazelbuild/bazel-gazelle/releases/download/0.16.0/bazel-gazelle-0.16.0.tar.gz"],
+    urls = ["https://github.com/bazelbuild/bazel-gazelle/releases/download/0.17.0/bazel-gazelle-0.17.0.tar.gz"],
+    sha256 = "3c681998538231a2d24d0c07ed5a7658cb72bfb5fd4bf9911157c0e9ac6a2687",
 )
 
-BAZEL_BUILD_TOOLS_SHA = "55b64c3d2ddfb57f06477c1d94ef477419c96bd6" # 0.22.0
+BAZEL_BUILD_TOOLS_SHA = "4bcdbd1064fcc48180fa30400e39f7a940fdb8f9"
 
 http_archive(
     name = "com_github_bazelbuild_buildtools",
@@ -21,7 +21,7 @@ http_archive(
     url = "https://github.com/bazelbuild/buildtools/archive/"+BAZEL_BUILD_TOOLS_SHA+".zip",
 )
 
-ATLASSIAN_BAZEL_TOOLS_SHA = "02db1d60cc5dff8ff8e9af6c5902d1f825bfc49f"
+ATLASSIAN_BAZEL_TOOLS_SHA = "02472d814d1867de2ad75801760732c9e595c9d9"
 
 http_archive(
     name = "com_github_atlassian_bazel_tools",
@@ -29,11 +29,10 @@ http_archive(
     urls = ["https://github.com/atlassian/bazel-tools/archive/"+ATLASSIAN_BAZEL_TOOLS_SHA+".zip"],
 )
 
-http_archive(
+git_repository(
     name = "io_bazel_rules_docker",
-    sha256 = "aed1c249d4ec8f703edddf35cbe9dfaca0b5f5ea6e4cd9e83e99f3b0d1136c3d",
-    strip_prefix = "rules_docker-0.7.0",
-    urls = ["https://github.com/bazelbuild/rules_docker/archive/v0.7.0.tar.gz"],
+    commit = "f40c92d1b30ff758a66aba7578039cbf959aea62",
+    remote = "https://github.com/bazelbuild/rules_docker.git",
 )
 
 git_repository(
