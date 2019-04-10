@@ -3,8 +3,8 @@ load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
 http_archive(
     name = "io_bazel_rules_go",
-    urls = ["https://github.com/bazelbuild/rules_go/releases/download/0.18.1/rules_go-0.18.1.tar.gz"],
-    sha256 = "77dfd303492f2634de7a660445ee2d3de2960cbd52f97d8c0dffa9362d3ddef9",
+    urls = ["https://github.com/bazelbuild/rules_go/releases/download/0.18.2/rules_go-0.18.2.tar.gz"],
+    sha256 = "31f959ecf3687f6e0bb9d01e1e7a7153367ecd82816c9c0ae149cd0e5a92bf8c",
 )
 
 http_archive(
@@ -13,7 +13,7 @@ http_archive(
     sha256 = "3c681998538231a2d24d0c07ed5a7658cb72bfb5fd4bf9911157c0e9ac6a2687",
 )
 
-BAZEL_BUILD_TOOLS_SHA = "4bcdbd1064fcc48180fa30400e39f7a940fdb8f9"
+BAZEL_BUILD_TOOLS_SHA = "f8fc3cbc809e100a8ced163e35bde46f8e6453f5"
 
 http_archive(
     name = "com_github_bazelbuild_buildtools",
@@ -21,7 +21,7 @@ http_archive(
     url = "https://github.com/bazelbuild/buildtools/archive/"+BAZEL_BUILD_TOOLS_SHA+".zip",
 )
 
-ATLASSIAN_BAZEL_TOOLS_SHA = "02472d814d1867de2ad75801760732c9e595c9d9"
+ATLASSIAN_BAZEL_TOOLS_SHA = "c7e0fd9070f04f88bf671e57f101aa0877a9b5c8"
 
 http_archive(
     name = "com_github_atlassian_bazel_tools",
