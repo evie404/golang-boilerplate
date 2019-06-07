@@ -1,12 +1,11 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
 load("@io_bazel_rules_docker//go:image.bzl", "go_image")
-load("//:constants.bzl", "GO_PREFIX")
 load("@io_bazel_rules_k8s//k8s:object.bzl", "k8s_object")
 
 go_library(
     name = "go_default_library",
     srcs = ["main.go"],
-    importpath = GO_PREFIX + "/helloworld/server",
+    importpath = "github.com/rickypai/golang-boilerplate/helloworld/server",
     visibility = ["//visibility:private"],
     deps = [
         "//helloworld/common:go_default_library",

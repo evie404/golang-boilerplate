@@ -1,6 +1,5 @@
 package(default_visibility = ["//visibility:public"])
 
-load("//:constants.bzl", "GO_PREFIX")
 load("@io_bazel_rules_go//proto:def.bzl", "go_proto_library")
 
 proto_library(
@@ -12,7 +11,7 @@ proto_library(
 go_proto_library(
     name = "go_default_library",
     compilers = ["@io_bazel_rules_go//proto:go_grpc"],
-    importpath = GO_PREFIX + "/protobufs/helloworld",
+    importpath = "github.com/rickypai/golang-boilerplate/protobufs/helloworld",
     proto = ":helloworld_proto",
     visibility = ["//visibility:public"],
 )

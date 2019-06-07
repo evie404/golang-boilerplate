@@ -1,10 +1,9 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
-load("//:constants.bzl", "GO_PREFIX")
 
 go_library(
     name = "go_default_library",
     srcs = ["main.go"],
-    importpath = GO_PREFIX + "/helloworld/client",
+    importpath = "github.com/rickypai/golang-boilerplate/helloworld/client",
     visibility = ["//visibility:private"],
     deps = [
         "//helloworld/common:go_default_library",
