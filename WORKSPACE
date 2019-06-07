@@ -38,13 +38,6 @@ git_repository(
     shallow_since = "1559569106 -0700",
 )
 
-git_repository(
-    name = "io_bazel_rules_k8s",
-    commit = "e52176690ae08e304723532a05bac5858838cfe4",
-    remote = "https://github.com/bazelbuild/rules_k8s.git",
-    shallow_since = "1559245225 -0700",
-)
-
 load("@io_bazel_rules_go//go:deps.bzl", "go_register_toolchains", "go_rules_dependencies")
 
 go_rules_dependencies()
@@ -80,7 +73,3 @@ load(
 )
 
 _go_image_repos()
-
-load("@io_bazel_rules_k8s//k8s:k8s.bzl", "k8s_repositories")
-
-k8s_repositories()
