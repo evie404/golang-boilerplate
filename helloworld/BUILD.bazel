@@ -5,6 +5,7 @@ go_library(
     srcs = ["main.go"],
     importpath = "github.com/rickypai/golang-boilerplate/helloworld",
     visibility = ["//visibility:private"],
+    deps = ["//helloworld/hello:go_default_library"],
 )
 
 go_binary(

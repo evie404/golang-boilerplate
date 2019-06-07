@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/rickypai/golang-boilerplate/helloworld/hello"
+)
 
 func main() {
-	fmt.Println("hello world")
+	fmt.Println(hello.HelloWorld())
 }
