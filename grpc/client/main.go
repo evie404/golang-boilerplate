@@ -24,7 +24,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/rickypai/golang-boilerplate/helloworld/common"
+	"github.com/rickypai/golang-boilerplate/grpc/common"
 	pb "github.com/rickypai/golang-boilerplate/protobufs/helloworld"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"

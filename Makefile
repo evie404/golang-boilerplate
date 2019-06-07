@@ -15,12 +15,12 @@ hello:
 # hello world gRPC server
 # https://github.com/grpc/grpc-go/tree/master/examples/helloworld
 server:
-	bazel run //helloworld/server:server
+	bazel run //grpc/server:server
 
 # hello world gRPC client
 # https://github.com/grpc/grpc-go/tree/master/examples/helloworld
 client:
-	bazel run //helloworld/client:client hi
+	bazel run //grpc/client:client -- hi
 
 # gazelle: automatic generation of Bazel build files
 # https://github.com/bazelbuild/bazel-gazelle
