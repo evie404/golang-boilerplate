@@ -1,5 +1,3 @@
-PROJECT := golang-boilerplate
-
 .PHONY: default build buildifier
 
 default: build
