@@ -7,6 +7,9 @@ default: build
 build:
 	bazel build //...
 
+hello:
+	bazel run //helloworld:helloworld
+
 server:
 	bazel run //helloworld/server:server
 
