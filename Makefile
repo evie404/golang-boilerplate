@@ -8,6 +8,10 @@ default: build
 build:
 	bazel build //...
 
+# tests all target
+test:
+	bazel test //...
+
 # hello world binary
 hello:
 	bazel run //helloworld:helloworld
