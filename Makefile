@@ -14,6 +14,14 @@ test:
 hello:
 	bazel run //helloworld:helloworld
 
+# hello world binary running with just go command
+hello-go:
+	go run ./helloworld
+
+# hello world test with just go command
+hello-test:
+	go test ./helloworld/.
+
 # hello world gRPC server
 # https://github.com/grpc/grpc-go/tree/master/examples/helloworld
 server:
