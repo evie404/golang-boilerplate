@@ -10,10 +10,11 @@ http_archive(
     ],
 )
 
-http_archive(
+git_repository(
     name = "bazel_gazelle",
-    sha256 = "3c681998538231a2d24d0c07ed5a7658cb72bfb5fd4bf9911157c0e9ac6a2687",
-    urls = ["https://github.com/bazelbuild/bazel-gazelle/releases/download/0.17.0/bazel-gazelle-0.17.0.tar.gz"],
+    commit = "f841893849567e717eb4a7b17ede577a186e45a6",
+    remote = "https://github.com/bazelbuild/bazel-gazelle",
+    shallow_since = "1563201340 -0400",
 )
 
 BAZEL_BUILD_TOOLS_SHA = "f27d1753c8b3210d9e87cdc9c45bc2739ae2c2db"
