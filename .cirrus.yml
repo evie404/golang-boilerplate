@@ -1,4 +1,4 @@
 container:
-  image: l.gcr.io/google/bazel:0.28.1
+  image: l.gcr.io/google/bazel:2.0.0
 task:
   build_script: bazel build //...
