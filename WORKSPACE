@@ -19,6 +19,17 @@ http_archive(
     ],
 )
 
+http_archive(
+    name = "github_go_repository",
+    sha256 = "7778d639ed16b4167d2825649ca7a46761ccacb4990e23da5bfcc59474f8ccdb",
+    strip_prefix = "github_go_repository-0.1",
+    urls = [
+        "https://github.com/rickypai/github_go_repository/archive/0.1.zip",
+    ],
+)
+
+load("@github_go_repository//:def.bzl", "github_go_repository")
+
 BAZEL_BUILD_TOOLS_SHA = "f27d1753c8b3210d9e87cdc9c45bc2739ae2c2db"
 
 http_archive(
@@ -91,9 +102,11 @@ load(
 
 _go_image_repos()
 
-go_repository(
+github_go_repository(
     name = "org_golang_google_grpc",
     importpath = "google.golang.org/grpc",
+    repo_url = "github.com/grpc/grpc-go",
+    sha256 = "ef0b0804485e2ce1da0bc6daa7f1073b0f7fc4c7971b6337271e9ff8bc7081d1",
     commit = "f495f5b15ae7ccda3b38c53a1bfcde4c1a58a2bc",  # 1.27.1
 )
 
@@ -111,8 +124,9 @@ go_repository(
     version = "v0.3.0",
 )
 
-go_repository(
+github_go_repository(
     name = "org_golang_x_sys",
     importpath = "golang.org/x/sys",
+    repo_url = "github.com/golang/sys",
     commit = "0732a990476f7f2f5f7200b39ba4ab730c0f09f8",
 )
