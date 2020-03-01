@@ -105,10 +105,10 @@ _go_image_repos()
 
 github_go_repository(
     name = "org_golang_google_grpc",
+    commit = "f495f5b15ae7ccda3b38c53a1bfcde4c1a58a2bc",  # 1.27.1
     importpath = "google.golang.org/grpc",
     repo_url = "github.com/grpc/grpc-go",
     sha256 = "ef0b0804485e2ce1da0bc6daa7f1073b0f7fc4c7971b6337271e9ff8bc7081d1",
-    commit = "f495f5b15ae7ccda3b38c53a1bfcde4c1a58a2bc",  # 1.27.1
 )
 
 go_repository(
@@ -127,7 +127,7 @@ go_repository(
 
 github_go_repository(
     name = "org_golang_x_sys",
+    commit = "0732a990476f7f2f5f7200b39ba4ab730c0f09f8",
     importpath = "golang.org/x/sys",
     repo_url = "github.com/golang/sys",
-    commit = "0732a990476f7f2f5f7200b39ba4ab730c0f09f8",
 )
