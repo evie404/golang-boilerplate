@@ -19,6 +19,7 @@ http_archive(
     ],
 )
 
+# github_go_repository is a thin wrapper around gazelle's go_repository which supports some level of http caching
 http_archive(
     name = "github_go_repository",
     sha256 = "7778d639ed16b4167d2825649ca7a46761ccacb4990e23da5bfcc59474f8ccdb",
