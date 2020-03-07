@@ -1,4 +1,4 @@
 container:
   image: gcr.io/cloud-builders/bazel@sha256:5654a8152a2e145a212ce92b6a794a58db9616fec470e19acedbd3ee6ca19d66
 task:
-  build_script: bazel build //...
+  build_script: bazel build //... --jobs=1 --remote_http_cache=http://$CIRRUS_HTTP_CACHE_HOST
