@@ -22,10 +22,10 @@ http_archive(
 # github_go_repository is a thin wrapper around gazelle's go_repository which supports some level of http caching
 http_archive(
     name = "github_go_repository",
-    sha256 = "7778d639ed16b4167d2825649ca7a46761ccacb4990e23da5bfcc59474f8ccdb",
-    strip_prefix = "github_go_repository-0.1",
+    sha256 = "2e469317040f6a96a065109e6b7c68bfbf6eedd831b5ddd1d8bd62ed567f3a17",
+    strip_prefix = "bazel_github_go_repository-0.1",
     urls = [
-        "https://github.com/rickypai/github_go_repository/archive/0.1.zip",
+        "https://github.com/rickypai/bazel_github_go_repository/archive/0.1.zip",
     ],
 )
 
