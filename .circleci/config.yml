@@ -5,10 +5,11 @@ jobs:
     docker:
     - image: gcr.io/cloud-builders/bazel@sha256:79b4915be0d73981b04b6dbdf06e531b1ea1121a9bcb9b6561439054f6bd9c87
     steps:
+    - checkout
     - run:
         command: bazel build //... --jobs=1
         name: Bazel Build
 workflows:
-  welcome:
+  build:
     jobs:
     - build
