@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   build:
     docker:
-    - image: gcr.io/cloud-builders/bazel@sha256:3c561895ff1268563114c7b1ef61cdfdd43a0b6812edb4e5b9e3a74f62173932
+    - image: gcr.io/cloud-builders/bazel@sha256:49d6a4713aa6b425ccfb7d08773a648658a3172343f27c4d926f2d161f545b59
     steps:
     - checkout
     - run:
