@@ -3,19 +3,19 @@ load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
 http_archive(
     name = "io_bazel_rules_go",
-    sha256 = "7b9bbe3ea1fccb46dcfa6c3f3e29ba7ec740d8733370e21cdc8937467b4a4349",
+    sha256 = "e5de048e72612598c45f564202f6a3c74616be4ffd2dbd6f7bc75045f8ecbdce",
     urls = [
-        "https://mirror.bazel.build/github.com/bazelbuild/rules_go/releases/download/v0.22.4/rules_go-v0.22.4.tar.gz",
-        "https://github.com/bazelbuild/rules_go/releases/download/v0.22.4/rules_go-v0.22.4.tar.gz",
+        "https://mirror.bazel.build/github.com/bazelbuild/rules_go/releases/download/v0.23.4/rules_go-v0.23.4.tar.gz",
+        "https://github.com/bazelbuild/rules_go/releases/download/v0.23.4/rules_go-v0.23.4.tar.gz",
     ],
 )
 
 http_archive(
     name = "bazel_gazelle",
-    sha256 = "d8c45ee70ec39a57e7a05e5027c32b1576cc7f16d9dd37135b0eddde45cf1b10",
+    sha256 = "cdb02a887a7187ea4d5a27452311a75ed8637379a1287d8eeb952138ea485f7d",
     urls = [
-        "https://storage.googleapis.com/bazel-mirror/github.com/bazelbuild/bazel-gazelle/releases/download/v0.20.0/bazel-gazelle-v0.20.0.tar.gz",
-        "https://github.com/bazelbuild/bazel-gazelle/releases/download/v0.20.0/bazel-gazelle-v0.20.0.tar.gz",
+        "https://mirror.bazel.build/github.com/bazelbuild/bazel-gazelle/releases/download/v0.21.1/bazel-gazelle-v0.21.1.tar.gz",
+        "https://github.com/bazelbuild/bazel-gazelle/releases/download/v0.21.1/bazel-gazelle-v0.21.1.tar.gz",
     ],
 )
 
@@ -31,36 +31,35 @@ http_archive(
 
 load("@github_go_repository//:def.bzl", "github_go_repository")
 
-BAZEL_BUILD_TOOLS_SHA = "f27d1753c8b3210d9e87cdc9c45bc2739ae2c2db"
+BAZEL_BUILD_TOOLS_SHA = "7141127cf9d8db23c9fea5e086466acbf461a66d"
 
 http_archive(
     name = "com_github_bazelbuild_buildtools",
-    sha256 = "cdaac537b56375f658179ee2f27813cac19542443f4722b6730d84e4125355e6",
+    sha256 = "a9bac5ed3551853ccda9a93792fa697af2cf3f825dde6be820201aac739e76b1",
     strip_prefix = "buildtools-" + BAZEL_BUILD_TOOLS_SHA,
     url = "https://github.com/bazelbuild/buildtools/archive/" + BAZEL_BUILD_TOOLS_SHA + ".zip",
 )
 
-ATLASSIAN_BAZEL_TOOLS_SHA = "f04c7c0ec6851ea378f90c74c855bcb87d9793b5"
+ATLASSIAN_BAZEL_TOOLS_SHA = "d885a03d1aeaadb2acb17423e00e8579bcfd9e80"
 
 http_archive(
     name = "com_github_atlassian_bazel_tools",
-    sha256 = "281aba7b549daaf418302cb0a51e8358d6557a03185019d6b521d9a12744c957",
+    sha256 = "cabca5f103e1cca401de8831c2e10ae715d92a8a19d628a41ac3dbd43fe165f6",
     strip_prefix = "bazel-tools-" + ATLASSIAN_BAZEL_TOOLS_SHA,
     urls = ["https://github.com/atlassian/bazel-tools/archive/" + ATLASSIAN_BAZEL_TOOLS_SHA + ".zip"],
 )
 
 http_archive(
     name = "io_bazel_rules_docker",
-    sha256 = "dc97fccceacd4c6be14e800b2a00693d5e8d07f69ee187babfd04a80a9f8e250",
-    strip_prefix = "rules_docker-0.14.1",
-    urls = ["https://github.com/bazelbuild/rules_docker/releases/download/v0.14.1/rules_docker-v0.14.1.tar.gz"],
+    sha256 = "4521794f0fba2e20f3bf15846ab5e01d5332e587e9ce81629c7f96c793bb7036",
+    strip_prefix = "rules_docker-0.14.4",
+    urls = ["https://github.com/bazelbuild/rules_docker/releases/download/v0.14.4/rules_docker-v0.14.4.tar.gz"],
 )
 
 git_repository(
     name = "com_google_protobuf",
-    commit = "09745575a923640154bcf307fba8aedff47f240a",
+    commit = "31ebe2ac71400344a5db91ffc13c4ddfb7589f92",  # v3.12.3
     remote = "https://github.com/protocolbuffers/protobuf",
-    shallow_since = "1558721209 -0700",
 )
 
 load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
@@ -105,10 +104,10 @@ _go_image_repos()
 
 github_go_repository(
     name = "org_golang_google_grpc",
-    commit = "f495f5b15ae7ccda3b38c53a1bfcde4c1a58a2bc",  # 1.27.1
+    commit = "754ee590a4f386d0910d887f3b8776354042260b",  # 1.29.1
     importpath = "google.golang.org/grpc",
     repo_url = "github.com/grpc/grpc-go",
-    sha256 = "ef0b0804485e2ce1da0bc6daa7f1073b0f7fc4c7971b6337271e9ff8bc7081d1",
+    sha256 = "9a6287473298cac4399d65f54e9db5a4104d8530125363430da4ca072e8de789",
 )
 
 go_repository(
