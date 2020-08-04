@@ -19,6 +19,15 @@ http_archive(
     ],
 )
 
+GAZELLE_SHA = "30aa1d7c9406aaf0838781e907eefc4bc2d1eddc"
+
+http_archive(
+    name = "bazel_gazelle",
+    sha256 = "5135ec3b4d9e83cf4251530b1e2fd566a372c4b1a3e743a15c9d644ccbcddd11",
+    strip_prefix = "bazel-gazelle-" + GAZELLE_SHA,
+    url = "https://github.com/bazelbuild/bazel-gazelle/archive/" + GAZELLE_SHA + ".zip",
+)
+
 # github_go_repository is a thin wrapper around gazelle's go_repository which supports some level of http caching
 http_archive(
     name = "github_go_repository",
@@ -31,11 +40,11 @@ http_archive(
 
 load("@github_go_repository//:def.bzl", "github_go_repository")
 
-BAZEL_BUILD_TOOLS_SHA = "7141127cf9d8db23c9fea5e086466acbf461a66d"
+BAZEL_BUILD_TOOLS_SHA = "f76b57a9805f2096426f8668a363ae6ccae473ec"
 
 http_archive(
     name = "com_github_bazelbuild_buildtools",
-    sha256 = "a9bac5ed3551853ccda9a93792fa697af2cf3f825dde6be820201aac739e76b1",
+    sha256 = "afea5de80bb1ebffa428feca7aac0a866b8155a838a8e3c4e3d68089c5935123",
     strip_prefix = "buildtools-" + BAZEL_BUILD_TOOLS_SHA,
     url = "https://github.com/bazelbuild/buildtools/archive/" + BAZEL_BUILD_TOOLS_SHA + ".zip",
 )
