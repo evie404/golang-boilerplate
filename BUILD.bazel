@@ -1,6 +1,6 @@
 load("@bazel_gazelle//:def.bzl", "gazelle")
 load("@com_github_bazelbuild_buildtools//buildifier:def.bzl", "buildifier")
-load("//:constants.bzl", "GO_PREFIX")
+GO_PREFIX = "github.com/rickypai/golang-boilerplate"
 
 gazelle(
     name = "gazelle",
