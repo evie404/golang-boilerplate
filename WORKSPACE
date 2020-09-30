@@ -3,29 +3,20 @@ load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
 http_archive(
     name = "io_bazel_rules_go",
-    sha256 = "2697f6bc7c529ee5e6a2d9799870b9ec9eaeb3ee7d70ed50b87a2c2c97e13d9e",
+    sha256 = "b725e6497741d7fc2d55fcc29a276627d10e43fa5d0bb692692890ae30d98d00",
     urls = [
-        "https://mirror.bazel.build/github.com/bazelbuild/rules_go/releases/download/v0.23.8/rules_go-v0.23.8.tar.gz",
-        "https://github.com/bazelbuild/rules_go/releases/download/v0.23.8/rules_go-v0.23.8.tar.gz",
+        "https://mirror.bazel.build/github.com/bazelbuild/rules_go/releases/download/v0.24.3/rules_go-v0.24.3.tar.gz",
+        "https://github.com/bazelbuild/rules_go/releases/download/v0.24.3/rules_go-v0.24.3.tar.gz",
     ],
 )
 
 http_archive(
     name = "bazel_gazelle",
-    sha256 = "cdb02a887a7187ea4d5a27452311a75ed8637379a1287d8eeb952138ea485f7d",
+    sha256 = "72d339ff874a382f819aaea80669be049069f502d6c726a07759fdca99653c48",
     urls = [
-        "https://mirror.bazel.build/github.com/bazelbuild/bazel-gazelle/releases/download/v0.21.1/bazel-gazelle-v0.21.1.tar.gz",
-        "https://github.com/bazelbuild/bazel-gazelle/releases/download/v0.21.1/bazel-gazelle-v0.21.1.tar.gz",
+        "https://mirror.bazel.build/github.com/bazelbuild/bazel-gazelle/releases/download/v0.22.1/bazel-gazelle-v0.22.1.tar.gz",
+        "https://github.com/bazelbuild/bazel-gazelle/releases/download/v0.22.1/bazel-gazelle-v0.22.1.tar.gz",
     ],
-)
-
-GAZELLE_SHA = "30aa1d7c9406aaf0838781e907eefc4bc2d1eddc"
-
-http_archive(
-    name = "bazel_gazelle",
-    sha256 = "5135ec3b4d9e83cf4251530b1e2fd566a372c4b1a3e743a15c9d644ccbcddd11",
-    strip_prefix = "bazel-gazelle-" + GAZELLE_SHA,
-    url = "https://github.com/bazelbuild/bazel-gazelle/archive/" + GAZELLE_SHA + ".zip",
 )
 
 # github_go_repository is a thin wrapper around gazelle's go_repository which supports some level of http caching
@@ -40,20 +31,20 @@ http_archive(
 
 load("@github_go_repository//:def.bzl", "github_go_repository")
 
-BAZEL_BUILD_TOOLS_SHA = "f76b57a9805f2096426f8668a363ae6ccae473ec"
+BAZEL_BUILD_TOOLS_SHA = "e6efbf6df90bec363c3cbd564b72be6c8a309f14"
 
 http_archive(
     name = "com_github_bazelbuild_buildtools",
-    sha256 = "afea5de80bb1ebffa428feca7aac0a866b8155a838a8e3c4e3d68089c5935123",
+    sha256 = "ec0e3f910b476b40e0ef26b1b163efa4d0dc56a79d700da81de3aa962ebb2f9e",
     strip_prefix = "buildtools-" + BAZEL_BUILD_TOOLS_SHA,
     url = "https://github.com/bazelbuild/buildtools/archive/" + BAZEL_BUILD_TOOLS_SHA + ".zip",
 )
 
-ATLASSIAN_BAZEL_TOOLS_SHA = "d885a03d1aeaadb2acb17423e00e8579bcfd9e80"
+ATLASSIAN_BAZEL_TOOLS_SHA = "6cb4f87bb5136762f2be00123f1739ab2f1cd263"
 
 http_archive(
     name = "com_github_atlassian_bazel_tools",
-    sha256 = "cabca5f103e1cca401de8831c2e10ae715d92a8a19d628a41ac3dbd43fe165f6",
+    sha256 = "104e4520e386ad13d8030121093f224a02628738d12ee82f72cf28a515c783f2",
     strip_prefix = "bazel-tools-" + ATLASSIAN_BAZEL_TOOLS_SHA,
     urls = ["https://github.com/atlassian/bazel-tools/archive/" + ATLASSIAN_BAZEL_TOOLS_SHA + ".zip"],
 )
@@ -67,7 +58,7 @@ http_archive(
 
 git_repository(
     name = "com_google_protobuf",
-    commit = "31ebe2ac71400344a5db91ffc13c4ddfb7589f92",  # v3.12.3
+    commit = "fde7cf7358ec7cd69e8db9be4f1fa6a5c431386a",  # v3.13.0
     remote = "https://github.com/protocolbuffers/protobuf",
 )
 
@@ -113,29 +104,32 @@ _go_image_repos()
 
 github_go_repository(
     name = "org_golang_google_grpc",
-    commit = "754ee590a4f386d0910d887f3b8776354042260b",  # 1.29.1
+    commit = "5e8f83304c0563d1ba74db05fee83d9c18ab9a58",  # 1.32.0
     importpath = "google.golang.org/grpc",
     repo_url = "github.com/grpc/grpc-go",
-    sha256 = "9a6287473298cac4399d65f54e9db5a4104d8530125363430da4ca072e8de789",
-)
-
-go_repository(
-    name = "org_golang_x_net",
-    importpath = "golang.org/x/net",
-    sum = "h1:oWX7TPOiFAMXLq8o0ikBYfCJVlRHBcsciT5bXOrH628=",
-    version = "v0.0.0-20190311183353-d8887717615a",
-)
-
-go_repository(
-    name = "org_golang_x_text",
-    importpath = "golang.org/x/text",
-    sum = "h1:g61tztE5qeGQ89tm6NTjjM9VPIm088od1l6aSorWRWg=",
-    version = "v0.3.0",
+    sha256 = "160fc44859435b70beb8e73f4144ba12511377993c34f6429f301a0121204638",
 )
 
 github_go_repository(
-    name = "org_golang_x_sys",
-    commit = "0732a990476f7f2f5f7200b39ba4ab730c0f09f8",
-    importpath = "golang.org/x/sys",
-    repo_url = "github.com/golang/sys",
+    name = "org_golang_x_net",
+    importpath = "golang.org/x/net",
+    commit = "ab34263943818b32f575efc978a3d24e80b04bd7",  # release-branch.go1.15
+    repo_url = "github.com/golang/net",
+    sha256 = "7f3c48e6aa4dfed3d52639e97d216b9393d31b4c5d6a2da7a898f025d9d41ac7",
+)
+
+github_go_repository(
+    name = "org_golang_x_text",
+    importpath = "golang.org/x/text",
+    commit = "afb9336c4530b4b18f37130eab53f245f7d6821e",  # release-branch.go1.15
+    repo_url = "github.com/golang/text",
+    sha256 = "b8a3d423db1d9936925ef28270df384ab7e9c256841f9545f6233fcb3f397b1b",
+)
+
+github_go_repository(
+    name = "org_golang_x_mod",
+    commit = "859b3ef565e237f9f1a0fb6b55385c497545680d",  # release-branch.go1.15
+    importpath = "golang.org/x/mod",
+    repo_url = "github.com/golang/mod",
+    sha256 = "0e93ead99da2660f235995b29559cc13f5268e2bace794aac87ccf83e6465a16",
 )
