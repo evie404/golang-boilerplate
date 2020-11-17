@@ -7,4 +7,12 @@ This contains two examples:
 1. Hello world binary for just printing hello world
 2. Hello world gRPC example with client/server
 
-You can find more details about how to run different commands to invoke different targets in the [Makefile](/Makefile).
+## How to use
+
+```
+bazel run //:gazelle
+```
+
+```
+bazel build //...
+```
